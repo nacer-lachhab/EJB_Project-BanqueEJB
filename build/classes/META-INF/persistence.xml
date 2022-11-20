@@ -8,7 +8,9 @@
     	<jta-data-source>java:/dsBank</jta-data-source>
 		<class>metier.entities.Compte</class>
 		<properties>
+			<!-- 
 			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+			-->
 		</properties>
 	</persistence-unit>
      

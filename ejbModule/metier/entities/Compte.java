@@ -4,13 +4,14 @@ import java.io.Serializable;
 import java.lang.Long;
 import java.util.Date;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Entity implementation class for Entity: Compte
  *
  */
+@XmlRootElement //binder les attributs, serialiser sous format xml a la demande client
 @Entity
-
 public class Compte implements Serializable {
 
 	   
@@ -44,5 +45,9 @@ public class Compte implements Serializable {
 	public void setDateCreation(Date dateCreation) {
 		this.dateCreation = dateCreation;
 	}
-   
+	
+	@Override
+	public String toString() {
+		return "Compte [id=" + id + ", solde=" + solde + ", dateCreation=" + dateCreation + "]";
+	}
 }

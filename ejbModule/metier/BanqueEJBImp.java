@@ -57,5 +57,19 @@ public class BanqueEJBImp implements IBanqueLocal,IBanqueRemote{
 	public void virement(Long idCompteSrc, Long idCompteDest, double montant) {
 		retrait(idCompteSrc, montant);
 		verser(idCompteDest, montant);
+	}
+
+	@Override
+	public Compte editCompte(Long idCompte, Compte newvalueCp) {
+		Compte compteDb = getCompte(idCompte);//tester son existence
+		compteDb.setDateCreation(compteDb.getDateCreation());
+		compteDb.setSolde(newvalueCp.getSolde());
+		return compteDb;
+	}
+
+	@Override
+	public void deleteCompte(Long idCompte) {
+		em.remove(getCompte(idCompte));
+		System.out.println("compte avec id: "+idCompte+"supprimé");
 	}	
 }
